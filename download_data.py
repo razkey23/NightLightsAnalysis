@@ -68,13 +68,20 @@ def download(url,storage_dir="./"):
     if not os.path.isdir(storage_dir):
         os.mkdir(storage_dir)
 
-
+    try:
+        with open('credentials.json') as f:
+            data = json.load(f)
+            username = data['username']
+            password = data['password']
+    except:
+        print("You need a credentials.json file in your current directory")
+        return 0
 
     params = {
         'client_id':'eogdata_oidc',
         'client_secret' : '2677ad81-521b-4869-8480-6d05b9e57d48',
-        'username':'kostantinosst23@gmail.com',
-        'password':'.dinos123a',
+        'username':username,
+        'password':password,
         'grant_type': 'password'
     }
     token_url = 'https://eogauth.mines.edu/auth/realms/master/protocol/openid-connect/token'
