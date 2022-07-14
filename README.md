@@ -57,7 +57,7 @@ This way you will extract all the files stored in *storage* and save them in a n
 
 **WARNING**: A lot of storage space is needed.
 
-## Process file
+### Step 4 : Process file
 The result of extraction are a lot of .tif files that contain information regarding the radiance in the whole tile-2 (Europe region). Now assuming that we have a geojson with our Area of Interest we can run the following command to obtain .csv that looks like results/results_crete.csv
 
 1. Get cropped .tif files based on our AoI
@@ -71,8 +71,8 @@ python parseImage.py --process True --processDir croppedImages --outcsv results_
 ```
 
 
-### Step 4 : Corrupted Images (Optional)
-Now because some of the .tif files are corrupted (cropped Image appears 100% black). These images can be found in a .txt files named corruptedtifs.txt that is created during step 3. Now using that file we can download vcmslcfg files in order to *fill* our timeseries with data.
+### Step 5 : Corrupted Images (Optional)
+Now because some of the .tif files are corrupted (cropped Image appears 100% black). These images can be found in a .txt files named corruptedtifs.txt that is created during step 4. Now using that file we can download vcmslcfg files in order to *fill* our timeseries with data.
 
 To download those auxiliary images:
 ```bash
